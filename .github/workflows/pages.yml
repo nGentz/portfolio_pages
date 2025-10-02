@@ -1,4 +1,3 @@
-# .github/workflows/pages.yml
 name: Deploy Next.js to Pages
 on:
   push: { branches: [ main ] }
@@ -24,10 +23,9 @@ jobs:
           cache: pnpm
       - uses: actions/configure-pages@v5
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build        # creates ./out when output:'export'
+      - run: pnpm build       # requires next.config.mjs -> output: 'export'
       - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
+        with: { path: ./out }
   deploy:
     needs: build
     runs-on: ubuntu-latest
