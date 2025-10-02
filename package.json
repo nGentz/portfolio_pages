@@ -4,6 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
+    "static": "pnpm build && pnpm export",
     "lint": "next lint"
   },
   "dependencies": {
